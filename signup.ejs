@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    body {
+      background-color: rgb(26, 66, 26);
+    }
+    .container {
+      width: 500px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px;   
+      border-radius: 10px;
+    }
+    h1 {
+      color: rgb(45, 157, 35);
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 18px;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+       border-radius: 5px;
+      border: none;
+      font-size: 18px;
+      background-color: rgb(19, 52, 19);
+      color: white;
+    }
+    a {
+      color: green;
+       font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <h1>Sign Up</h1>
+      <form action="register" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+          <input type="text" class="form-input" name="name" placeholder="Name">
+          <span></span>
+        </div>
+  
+        <div class="form-group">
+          <input type="text" class="form-input" placeholder="username" name="username">
+          <span></span>
+        </div>
+  
+        <div class="form-group">
+          <input type="email" class="form-input" placeholder="Email" name="email">
+          <span></span>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-input" name="pwd" placeholder="Password">
+          <span></span>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-input" name="confirm_pwd" placeholder="Confirm Password">
+          <span></span>
+        </div>
+        <br><br>
+  
+        <div class="form-group">
+          <input type="file" class="form-input" name="profile_pic" style="cursor: pointer;">
+          <span></span>
+        </div><br><br>
+        <button type="submit" class="form-button" style="cursor: pointer; font-size: 20px;">Sign Up</button>
+      </form>
+    <p>Already have an account? <a href="login.html">Login</a></p>
+  </div>
+</body>
+</html>
+
+
+
+
