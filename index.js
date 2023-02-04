@@ -49,43 +49,40 @@ app.post("/register", upload.single("profile_pic"), (req, res,next) => {
   let pwd = req.body.pwd;
   let user_name = req.body.user_name;
   console.log(req.file);
-
-
-  // const express=require('express');
-  // const app=(express (req,res)=>{
-  //   if(req=='/login'){
-  //     res.writeHead
-  //   }
-  // })
-  //let image = req.file.filename;
-
-  // console.log(req);
-
-  // connection.query(
-  //   `INSERT INTO login_work (Name,user_name,email,password,image) VALUES (?,?,?,?,?)`,
-  //   [Name, user_name, email, pwd, image],
-  //   (err, result) => {
-  //     if (err) console.log("error found:", err);
-  //     console.log(result);
-  //     //res.render("dashboard.ejs",{email,pwd,username,image})
-  //   }
-  // );
-  // connection.query(
-  //   `SELECT image FROM user_table WHERE email = ?`,
-  //   [email],
-
-  //   async (err, result) => {
-  //     if (err) console.log("err found:", err);
-  //     console.log(result);
-  //     // console.log(result[0].image.toString());
-
-  //     image = path.join("images", "uploads", result[0].image.toString());
-
-  //     console.log(image);
-  //     res.render("dashboard.ejs", { pwd, user_name, email, image });
-  //   }
-  // );
   
+  let image = req.file.filename;
+
+  console.log(req);
+
+  connection.query(
+    `INSERT INTO user (Name,user_name,email,password,image) VALUES (?,?,?,?,?)`,
+   [Name, user_name, email, pwd, image],
+ (err, result) => {
+     if (err) console.log("error found:", err);
+     console.log(result);
+      res.render("dashboard.ejs",{email,pwd,user_name,image})
+    }
+);
+  connection.query(
+    `SELECT image FROM user WHERE email = ?`,
+    [email],
+
+     async (err, result) => {
+     if (err) console.log("err found:", err);
+      console.log(result);
+      // console.log(result[0].image.toString());
+
+      image = path.join("images", "uploads", result[0].image.toString());
+
+      console.log(image);
+      res.render("dashboard.ejs", { pwd, user_name, email, image });
+    }
+  );
+  res.json(
+    {
+      profile:
+    }
+  )
 });
 
 app.listen(5000, () => {
